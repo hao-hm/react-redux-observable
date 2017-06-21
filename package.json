@@ -1,0 +1,30 @@
+{
+  "name": "react-redux-observable",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://594aece43dee430011f09f7d.mockapi.io",
+  "dependencies": {
+    "history": "^4.6.3",
+    "immutable": "^3.8.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.0",
+    "redux-immutable": "^4.0.0",
+    "redux-observable": "^0.14.1",
+    "reselect": "^3.0.1",
+    "rxjs": "^5.4.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
