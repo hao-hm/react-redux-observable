@@ -1,4 +1,4 @@
-import reducer from './reducer';
+import locationReducer from './reducer';
 import fetchLocationEpic from './epic';
 
-export default {reducer, fetchLocationEpic};
+export {locationReducer, fetchLocationEpic};

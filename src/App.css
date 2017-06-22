@@ -32,4 +32,36 @@
 .App-content {
   padding: 20px;
   margin-top: 30px;
+  position: relative;
 }
+
+.button {
+  background: #ffffff;
+  border: solid 1px #EEEEEE;
+  border-radius: 2px;
+  color: #333333;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.button:hover{
+  border-color: #108ee9;
+  color: #108ee9;
+}
+
+.button--primary {
+  background-color: #108ee9;
+  color: white;
+  border-color: #108ee9;
+}
+
+.button--primary:hover {
+  background-color: #1769e9;
+  color: white;
+}
+

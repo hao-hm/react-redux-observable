@@ -1,0 +1,9 @@
+.AppBar {
+  position: relative;
+  border-bottom: solid 1px #EEEEEE;
+}
+.AppBar__actions {
+  position: absolute;
+  right: 0;
+  top: -10px;
+}

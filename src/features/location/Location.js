@@ -1,37 +1,29 @@
-import React from 'react';
-import {bindActionCreators} from 'redux';
-import { connect } from 'react-redux';
-import * as action from './actions';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {createStructuredSelector} from 'reselect';
+import {makeSelectMode, makeSelectError} from './selectors';
+import LocationList from './LocationList';
+import {VIEW_MODE} from '../../util/actionType';
+import LocationForm from './LocationForm';
+import Alert from "../../components/Alert/index";
 
-
-function mapStateToProps(state) {
-	return {
-	};
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  action: bindActionCreators(action, dispatch)
+const mapStateToProps = createStructuredSelector({
+  mode: makeSelectMode(),
+  error: makeSelectError()
 });
 
-export class Location extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-  componentDidMount() {
-    this.props.action.fetchStart();
-  }
-
+export class Location extends Component {
   render() {
-		return (
-			<div>
-        Location
+    const {mode, error} = this.props;
+    return (
+      <div>
+        <Alert message={error.message}/>
+        {mode === VIEW_MODE ? <LocationList/> : <LocationForm/>}
       </div>
-		);
-	}
+    )
+  }
 }
 
 export default connect(
-	mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Location)

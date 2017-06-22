@@ -1,34 +1,6 @@
-import {
-  FETCH_START,
-  FETCH_SUCCESS,
-  FETCH_ERROR,
-  FETCH_CANCELED
-} from './constants';
+import generateAction from '../../util/createAction';
+import {MODULE_NAME} from './constants';
 
-export function fetchStart() {
-  return {
-    type: FETCH_START,
-  };
-}
+const actions = generateAction(MODULE_NAME);
 
-
-export function fetchSuccess(data) {
-  return {
-    type: FETCH_SUCCESS,
-    data
-  };
-}
-
-export function fetchError(error) {
-  return {
-    type: FETCH_ERROR,
-    error,
-  };
-}
-
-
-export function fetchCanceled() {
-  return {
-    type: FETCH_CANCELED,
-  };
-}
+export default actions;

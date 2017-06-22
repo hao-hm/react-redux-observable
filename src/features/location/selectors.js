@@ -16,10 +16,21 @@ const makeSelectError = () => createSelector(
   (selectLocation) => selectLocation.get('error')
 );
 
+const makeSelectMode = () => createSelector(
+  selectLocation,
+  (selectLocation) => selectLocation.get('mode')
+);
+
+const makeSelectCurrent = () => createSelector(
+  selectLocation,
+  (selectLocation) => selectLocation.get('current')
+);
+
 
 export {
   makeSelectData,
   makeSelectLoading,
-  makeSelectLoading,
-  makeSelectError
+  makeSelectError,
+  makeSelectMode,
+  makeSelectCurrent
 };
