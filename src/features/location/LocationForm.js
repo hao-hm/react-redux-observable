@@ -17,9 +17,12 @@ class LocationForm extends PureComponent {
       name: '',
       description: ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit = (e) => {
+  handleSubmit  (e)  {
     e.preventDefault();
     if (this.state.name) {
       if (this.isCreate()) {
@@ -28,24 +31,24 @@ class LocationForm extends PureComponent {
         this.props.action.updateStart(this.props.current.id, this.state);
       }
     }
-  };
+  }
 
-  isCreate = () => {
+  isCreate(){
     return this.props.mode === CREATE_MODE;
-  };
+  }
 
-  isEdit = () => {
+  isEdit(){
     return this.props.mode === EDIT_MODE;
-  };
+  }
 
-  handleCancel = () => {
+  handleCancel ()  {
     this.props.action.changeMode(VIEW_MODE);
     this.props.action.setCurrent(null);
-  };
+  }
 
-  handleChange = (event) => {
+  handleChange  (event)  {
     this.setState({[event.target.name]: event.target.value});
-  };
+  }
 
   render() {
     const {loading} = this.props;

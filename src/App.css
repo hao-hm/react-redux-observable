@@ -6,34 +6,24 @@
   background-color: #333;
   position: fixed;
   top: 0;
-  width: 100%;
-}
-
-.App-menu li {
-  float: left;
-}
-
-.App-menu li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.App-menu li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.App-menu .active {
-  background-color: #4CAF50;
-}
+  width: 100%; }
+  .App-menu li {
+    float: left; }
+    .App-menu li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none; }
+    .App-menu li:hover:not(.active) {
+      background-color: #111; }
+  .App-menu .active {
+    background-color: #4CAF50; }
 
 .App-content {
   padding: 20px;
   margin-top: 30px;
-  position: relative;
-}
+  position: relative; }
 
 .button {
   background: #ffffff;
@@ -46,22 +36,16 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 10px;
-}
+  margin-left: 10px; }
+  .button:hover {
+    border-color: #108ee9;
+    color: #108ee9; }
+  .button--primary {
+    background-color: #108ee9;
+    color: white;
+    border-color: #108ee9; }
+    .button--primary:hover {
+      background-color: #0d71b9;
+      color: white; }
 
-.button:hover{
-  border-color: #108ee9;
-  color: #108ee9;
-}
-
-.button--primary {
-  background-color: #108ee9;
-  color: white;
-  border-color: #108ee9;
-}
-
-.button--primary:hover {
-  background-color: #1769e9;
-  color: white;
-}
-
+/*# sourceMappingURL=App.css.map */

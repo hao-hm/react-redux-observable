@@ -7,18 +7,18 @@ function createRoutes() {
     {
       path: '/',
       exact: true,
-      component: asyncComponent(() => import('./features/home/Home'))
+      component: asyncComponent(() => import('./features/home'))
     },
     {
       path: '/about',
-      component: asyncComponent(() => import('./features/about/About'))
+      component: asyncComponent(() => import('./features/about'))
     },
     {
       path: '/location',
-      component: asyncComponent(() => import('./features/location/Location'))
+      component: asyncComponent(() => import('./features/location'))
     },
     {
-      component: asyncComponent(() => import('./features/notFound/NotFound'))
+      component: asyncComponent(() => import('./features/notFound'))
     },
   ];
 }

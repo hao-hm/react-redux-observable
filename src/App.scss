@@ -1,0 +1,60 @@
+$primary-color: #108ee9;
+
+.App-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  li {
+    float: left;
+    a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    &:hover:not(.active){
+      background-color: #111;
+    }
+  }
+  .active{
+    background-color: #4CAF50;
+  }
+}
+.App-content {
+  padding: 20px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.button {
+  background: #ffffff;
+  border: solid 1px #EEEEEE;
+  border-radius: 2px;
+  color: #333333;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+  &--primary {
+    background-color: $primary-color;
+    color: white;
+    border-color: $primary-color;
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      color: white;
+    }
+  }
+}

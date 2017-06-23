@@ -1,11 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { ajax } from 'rxjs/observable/dom/ajax';
 import { fromJS } from 'immutable';
 import 'rxjs';
 import { createEpicMiddleware } from 'redux-observable';
 import createReducer from './reducers';
 import { rootEpic } from './epics';
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
+const epicMiddleware = createEpicMiddleware(rootEpic, {
+  dependencies: { getJSON: ajax.getJSON, post: ajax.post }
+});
 
 export default function configureStore(initialState = {}) {
   const middlewares = [

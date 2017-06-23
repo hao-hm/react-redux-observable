@@ -1,15 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
+  font-family: sans-serif; }
 
 input[type=text] {
   padding: 8px 16px;
   margin: 8px;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
-label{
-  padding: 8px;
-}
+label {
+  padding: 8px; }
+
+/*# sourceMappingURL=index.css.map */
