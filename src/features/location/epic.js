@@ -10,11 +10,10 @@ export const fetchLocationEpic = (action$) =>
     .mergeMap(function (action) {
       return Observable.ajax.getJSON(`${URL}/locations?sortBy=createdAt&order=desc`)
         .map(function (response) {
-          console.log('success', response);
           return actions.fetchSuccess(response)
         })
         .takeUntil(action$.ofType(actions.fetchCanceled()))
-        .catch(err => Observable.of(actions.fetchError(err)));
+        .catch(err => Observable.of(actions.fetchError(err.message)));
 
     });
 

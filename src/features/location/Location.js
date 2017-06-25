@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import {makeSelectMode, makeSelectError} from './selectors';
@@ -12,12 +12,12 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError()
 });
 
-export class Location extends Component {
+export class Location extends PureComponent {
   render() {
     const {mode, error} = this.props;
     return (
       <div>
-        <Alert message={error.message}/>
+        <Alert message={error}/>
         {mode === VIEW_MODE ? <LocationList/> : <LocationForm/>}
       </div>
     )

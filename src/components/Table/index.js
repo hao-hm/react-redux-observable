@@ -17,14 +17,12 @@ const renderRows = (data, columns) => data.map(function (item) {
   return <tr key={item.id}>{cells}</tr>;
 });
 
-export default class index extends React.Component {
-  render() {
-    const {columns, dataSource} = this.props;
-    return (
-      <table className="table">
-        <thead><tr>{renderColumns(columns)}</tr></thead>
-        <tbody>{renderRows(dataSource, columns)}</tbody>
-      </table>
-    );
-  }
-}
+
+const Table = ({columns, dataSource}) => (
+  <table className="table">
+    <thead><tr>{renderColumns(columns)}</tr></thead>
+    <tbody>{renderRows(dataSource, columns)}</tbody>
+  </table>
+);
+export default Table;
+

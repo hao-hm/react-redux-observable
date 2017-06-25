@@ -9,26 +9,15 @@ import Loading from '../../components/Loading';
 import AppBar from "../../components/AppBar";
 import { CREATE_MODE, EDIT_MODE } from '../../util/actionType';
 
-const mapStateToProps = createStructuredSelector({
-  locations: makeSelectData(),
-  loading: makeSelectLoading(),
-  error: makeSelectError()
-});
-
-
-const mapDispatchToProps = (dispatch) => ({
-  action: bindActionCreators(actions, dispatch)
-});
-
 export class LocationList extends Component {
   constructor(props) {
     super(props);
     this.onDeleteClick = this.onDeleteClick.bind(this);
     this.onEditClick = this.onEditClick.bind(this);
   }
-  
-  
-  componentWillMount() {
+
+
+  componentDidMount() {
     this.props.action.fetchStart();
   }
 
@@ -76,6 +65,16 @@ export class LocationList extends Component {
     );
   }
 }
+const mapStateToProps = createStructuredSelector({
+  locations: makeSelectData(),
+  loading: makeSelectLoading(),
+  error: makeSelectError()
+});
+
+
+export const mapDispatchToProps = (dispatch) => ({
+  action: bindActionCreators(actions, dispatch)
+});
 
 export default connect(
   mapStateToProps,

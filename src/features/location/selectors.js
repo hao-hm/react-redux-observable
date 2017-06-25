@@ -28,6 +28,7 @@ const makeSelectCurrent = () => createSelector(
 
 
 export {
+  selectLocation,
   makeSelectData,
   makeSelectLoading,
   makeSelectError,
