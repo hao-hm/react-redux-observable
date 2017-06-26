@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import actions from './actions';
@@ -9,7 +9,7 @@ import Loading from '../../components/Loading';
 import AppBar from "../../components/AppBar";
 import { CREATE_MODE, EDIT_MODE } from '../../util/actionType';
 
-export class LocationList extends Component {
+export class LocationList extends PureComponent {
   constructor(props) {
     super(props);
     this.onDeleteClick = this.onDeleteClick.bind(this);
@@ -19,6 +19,10 @@ export class LocationList extends Component {
 
   componentDidMount() {
     this.props.action.fetchStart();
+  }
+
+  componentWillUnmount() {
+  	this.props.action.fetchCanceled();
   }
 
   onDeleteClick(item) {
@@ -47,7 +51,7 @@ export class LocationList extends Component {
         render: (text, record) => (
           <span>
             <a role="button" onClick={() => this.onEditClick(record)}>Edit</a> |
-            <a role="button" onClick={() => this.onDeleteClick(record)}>Delete</a>
+            <a role="button" onClick={() => this.onDeleteClick(record)}> Delete</a>
           </span>
         )
       },

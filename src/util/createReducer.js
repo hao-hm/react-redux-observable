@@ -54,6 +54,7 @@ export function createReducers(initialState, module) {
       case ACTION_TYPE.CHANGE_MODE:
         return state
           .set('mode', action.mode);
+
       case ACTION_TYPE.SET_CURRENT:
         return state
           .set('current', action.current);

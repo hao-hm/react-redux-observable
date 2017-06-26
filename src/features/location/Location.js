@@ -1,3 +1,4 @@
+// @flow
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
@@ -12,7 +13,13 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError()
 });
 
-export class Location extends PureComponent {
+type Props = {
+  mode: string,
+  error: string
+}
+
+export class Location extends PureComponent<void, Props, void> {
+
   render() {
     const {mode, error} = this.props;
     return (

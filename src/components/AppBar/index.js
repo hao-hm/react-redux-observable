@@ -1,8 +1,10 @@
-import React, {Component} from 'react';
+// @flow
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import './AppBar.css';
 
-class AppBar extends Component {
+
+class AppBar extends PureComponent {
   render() {
     const {buttons, title} = this.props;
     return (

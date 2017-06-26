@@ -1,14 +1,13 @@
 import { Observable } from 'rxjs';
-import createActionType, {VIEW_MODE} from '../../util/actionType';
-import {MODULE_NAME} from './constants';
+import { ActionsObservable } from 'redux-observable';
+import {VIEW_MODE} from '../../util/actionType';
 import actions from './actions';
+import ACTION_TYPE from './actionType';
 
-const ACTION_TYPE = createActionType(MODULE_NAME);
-const URL = 'http://594aece43dee430011f09f7d.mockapi.io';
-export const fetchLocationEpic = (action$) =>
+export const fetchLocationEpic = (action$: ActionsObservable): ActionsObservable =>
   action$.ofType(ACTION_TYPE.FETCH_START)
     .mergeMap(function (action) {
-      return Observable.ajax.getJSON(`${URL}/locations?sortBy=createdAt&order=desc`)
+      return Observable.ajax.getJSON(`/locations?sortBy=createdAt&order=desc`)
         .map(function (response) {
           return actions.fetchSuccess(response)
         })
@@ -18,10 +17,10 @@ export const fetchLocationEpic = (action$) =>
     });
 
 
-export const createLocationEpic = action$ =>
+export const createLocationEpic = (action$: ActionsObservable): ActionsObservable =>
   action$.ofType(ACTION_TYPE.CREATE_START)
     .switchMap((action) =>
-      Observable.ajax.post(`${URL}/locations`, action.payload)
+      Observable.ajax.post(`/locations`, action.payload)
         .flatMap(response => Observable.concat(
           Observable.of(actions.createSuccess(response)),
           Observable.of(actions.changeMode(VIEW_MODE))
@@ -30,10 +29,10 @@ export const createLocationEpic = action$ =>
         .catch(err => Observable.of(actions.createError(err)))
     );
 
-export const updateLocationEpic = action$ =>
+export const updateLocationEpic = (action$: ActionsObservable): ActionsObservable =>
   action$.ofType(ACTION_TYPE.UPDATE_START)
     .switchMap((action) =>
-      Observable.ajax.put(`${URL}/locations/${action.id}`, action.payload)
+      Observable.ajax.put(`/locations/${action.id}`, action.payload)
         .flatMap(response => Observable.concat(
           Observable.of(actions.updateSuccess(response)),
           Observable.of(actions.changeMode(VIEW_MODE))
@@ -43,10 +42,10 @@ export const updateLocationEpic = action$ =>
     );
 
 
-export const deleteLocationEpic = action$ =>
+export const deleteLocationEpic = (action$: ActionsObservable): ActionsObservable =>
   action$.ofType(ACTION_TYPE.DELETE_START)
     .switchMap((action) =>
-      Observable.ajax.delete(`${URL}/locations/${action.id}`)
+      Observable.ajax.delete(`/locations/${action.id}`)
         .flatMap(response => Observable.concat(
           Observable.of(actions.deleteSuccess(response)),
           Observable.of(actions.fetchStart())

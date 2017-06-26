@@ -1,3 +1,4 @@
+// @flow
 import { fromJS } from 'immutable';
 import {MODULE_NAME} from './constants';
 import {createReducers} from '../../util/createReducer';

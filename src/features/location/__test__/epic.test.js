@@ -1,4 +1,4 @@
-import {ActionsObservable} from "redux-observable";
+import { ActionsObservable } from 'redux-observable';
 import {Observable} from "rxjs/Observable";
 import {fetchLocationEpic} from '../epic';
 import actions from '../actions';
